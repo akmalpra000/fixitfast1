@@ -1,0 +1,80 @@
+FIXITFAST - MY EARNING PLAN (read me first)
+===========================================
+
+WHAT THIS SITE IS
+Topic: simple fixes for everyday phone, Wi-Fi and PC problems.
+Why: people search these problems every day, so traffic keeps coming.
+Earning: Google AdSense ads (later: affiliate links, or selling the site).
+Honest note: income takes months. Most sites see little for 3-6 months.
+
+FILES (keep all in ONE folder)
+index.html    home page
+article.html  shows one article
+style.css     design
+articles.js   ALL 30 ARTICLES (already in, dated 23 Oct - 21 Nov 2026)
+about.html, privacy.html, contact.html   needed for AdSense
+sitemap.xml, robots.txt   for Google Search Console
+FixItFast_30_Day_Schedule.xlsx   my tracking sheet (edit text, add own experience)
+
+STEP 1 - TEST ON MY PC (day 1)
+1. Open the folder in VS Code.
+2. Right-click index.html > Open with Live Server (or just double-click).
+3. Change your@email.com in index.html.
+
+STEP 2 - PUT IT ONLINE FREE (day 1-2)
+1. Make a free account on Netlify or Cloudflare Pages or GitHub Pages.
+2. Drag and drop the folder. You get a link.
+3. Later buy a domain (about $10/year), e.g. fixitfast-guides.com.
+
+STEP 3 - ADD MY 30 ARTICLES (the 30-day schedule)
+1. Open articles.js, copy the TEMPLATE block, paste it, edit it.
+2. Set "date" to the day it should appear (one per day).
+3. Add all 30 in one sitting. The site shows each one automatically
+   on its date. Re-upload the folder only when I add new articles.
+4. Each article: 600-1000 words, own words, numbered steps, real solutions.
+   Do NOT copy from other sites (Google and AdSense reject copied content).
+
+STEP 4 - GOOGLE SEARCH CONSOLE (week 1)
+1. Go to search.google.com/search-console, add my site link.
+2. Verify ownership (it gives a code or file, follow the steps).
+3. Make a sitemap.xml (list my pages) and submit it.
+4. Check weekly: which searches bring visitors.
+
+STEP 5 - ADSENSE (after about 20-30 good articles)
+1. Needs: About, Privacy Policy, Contact page, original articles.
+2. Apply at adsense.google.com, paste the code in the "Ad space" spots.
+
+30 ARTICLE IDEAS (write 1 per day)
+1 Wi-Fi slow fixes (done)       16 Windows update stuck
+2 Phone storage full (done)     17 Laptop overheating
+3 Phone battery drains fast     18 Bluetooth not connecting
+4 Laptop slow, 10 fixes         19 Printer not printing
+5 Wi-Fi connected, no internet  20 Forgot Windows password
+6 Phone charging slowly         21 Screen flickering
+7 WhatsApp backup not working   22 Android apps crashing
+8 Computer won't turn on        23 iPhone overheating
+9 Mic not working on PC         24 Google Drive storage full
+10 Remove pop-up ads on phone   25 Hotspot not working
+11 Speed up Chrome              26 Keyboard typing wrong keys
+12 USB not detected             27 Recover deleted files
+13 Blue screen error            28 Speed up old Android phone
+14 Camera blurry fix            29 Fix microphone echo on calls
+15 Phone hangs and freezes      30 Router lights meaning
+Write each as: problem, why it happens, numbered fix steps, tips.
+
+DAILY ROUTINE (20 minutes)
+- Write/edit 1 article, paste into articles.js, re-upload when batch ready.
+- Keep a record of what I published and what Search Console shows.
+
+BEFORE UPLOADING - FIND & REPLACE (VS Code: Ctrl+Shift+H, whole folder)
+1. YOURDOMAIN.com  -> my real domain (index, privacy, sitemap, robots)
+2. your@email.com  -> my real email (index, privacy, contact)
+3. YOUR NAME       -> my name (about.html)
+4. If articles start on a different day, change the dates in articles.js
+   and sitemap.xml.
+
+AFTER UPLOADING
+- Submit https://MYDOMAIN.com/sitemap.xml in Search Console.
+- Expand each article to 600+ words with my own real experience.
+- Share each new article on Facebook, WhatsApp groups and Pinterest.
+- Traffic is slow at first. Keep publishing, check Search Console weekly.

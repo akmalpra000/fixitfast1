@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>FixItFast</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4&display=swap">
+<link rel="stylesheet" href="style.css"></head><body>
+<header><a class="logo" href="index.html">Fix<b>It</b>Fast</a><nav><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
+<article id="a"></article><footer><a href="about.html">About</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a><br>© <span id="y"></span> FixItFast. All rights reserved.<script>document.getElementById("y").textContent=new Date().getFullYear()</script></footer>
+<script src="articles.js"></script>
+<script>
+const id=new URLSearchParams(location.search).get("id"),today=new Date().toISOString().slice(0,10);
+const a=ARTICLES.find(x=>x.id==id&&x.date<=today),el=document.getElementById("a");
+if(a){document.title=a.title+" – FixItFast";var md=document.createElement("meta");md.name="description";md.content=a.summary;document.head.appendChild(md);
+el.innerHTML=`<span class="meta">${a.category} · ${a.date}</span><h1>${a.title}</h1><div class="ad">Ad space</div>${a.body}<div class="ad">Ad space</div><p><a href="index.html">← More guides</a></p>`}
+else el.innerHTML="<h1>Guide not found</h1><p><a href='index.html'>Back to all guides</a></p>";
+</script></body></html>

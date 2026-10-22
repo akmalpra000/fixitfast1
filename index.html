@@ -1,0 +1,28 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FixItFast – Simple fixes for everyday phone, Wi-Fi and PC problems</title>
+<meta name="description" content="Step-by-step guides that fix common phone, Wi-Fi and computer problems in minutes.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4&display=swap">
+<meta property="og:title" content="FixItFast"><meta property="og:description" content="Simple fixes for everyday phone, Wi-Fi and PC problems."><link rel="canonical" href="https://YOURDOMAIN.com/"><link rel="stylesheet" href="style.css"></head><body>
+<header><a class="logo" href="index.html">Fix<b>It</b>Fast</a><nav><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
+<div class="hero"><h1>What’s broken? Let’s fix it.</h1>
+<p>Plain, step-by-step solutions for slow Wi-Fi, full phones and misbehaving computers.</p>
+<form class="search" onsubmit="return false"><input id="q" placeholder="Try: wifi, storage, battery" aria-label="Search guides"><button>Search</button></form></div>
+<main id="guides"><div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div>
+<div class="ad">Ad space – paste your AdSense code here</div>
+
+</main><footer><a href="about.html">About</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a><br>© <span id="y"></span> FixItFast. All rights reserved.<script>document.getElementById("y").textContent=new Date().getFullYear()</script></footer>
+<script src="articles.js"></script>
+<script>
+const today=new Date().toISOString().slice(0,10);
+const live=ARTICLES.filter(a=>a.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
+let cat="All";const grid=document.getElementById("grid"),q=document.getElementById("q");
+function chips(){const cs=["All",...new Set(live.map(a=>a.category))];
+ document.getElementById("chips").innerHTML=cs.map(c=>`<button class="chip ${c==cat?"on":""}" data-c="${c}">${c}</button>`).join("");
+ document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cat=b.dataset.c;chips();draw()})}
+function draw(){const t=q.value.toLowerCase();
+ const l=live.filter(a=>(cat=="All"||a.category==cat)&&(a.title+a.summary).toLowerCase().includes(t));
+ grid.innerHTML=l.length?l.map(a=>`<a class="card" href="article.html?id=${a.id}"><span class="meta">${a.category} · ${a.date}</span><h3>${a.title}</h3><p>${a.summary}</p></a>`).join(""):"<p>No guides found yet. Check back tomorrow.</p>"}
+q.oninput=draw;chips();draw();document.getElementById("y").textContent=new Date().getFullYear();
+</script></body></html>
