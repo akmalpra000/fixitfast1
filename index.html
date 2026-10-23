@@ -1,28 +1,1552 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FixItFast – Simple fixes for everyday phone, Wi-Fi and PC problems</title>
-<meta name="description" content="Step-by-step guides that fix common phone, Wi-Fi and computer problems in minutes.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4&display=swap">
-<meta property="og:title" content="FixItFast"><meta property="og:description" content="Simple fixes for everyday phone, Wi-Fi and PC problems."><link rel="canonical" href="https://YOURDOMAIN.com/"><link rel="stylesheet" href="style.css"></head><body>
-<header><a class="logo" href="index.html">Fix<b>It</b>Fast</a><nav><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
-<div class="hero"><h1>What’s broken? Let’s fix it.</h1>
-<p>Plain, step-by-step solutions for slow Wi-Fi, full phones and misbehaving computers.</p>
-<form class="search" onsubmit="return false"><input id="q" placeholder="Try: wifi, storage, battery" aria-label="Search guides"><button>Search</button></form></div>
-<main id="guides"><div class="chips" id="chips"></div>
-<div class="grid" id="grid"></div>
-<div class="ad">Ad space – paste your AdSense code here</div>
 
-</main><footer><a href="about.html">About</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a><br>© <span id="y"></span> FixItFast. All rights reserved.<script>document.getElementById("y").textContent=new Date().getFullYear()</script></footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>FixItFast – Simple Tech Fixes That Actually Work</title>
+  <meta name="description" content="Discover simple, step-by-step solutions for phone, Wi-Fi, PC and USB problems. Fix everyday technology issues with FixItFast.">
+  <meta name="theme-color" content="#071426">
+
+  <meta property="og:title" content="FixItFast – Simple Tech Fixes">
+  <meta property="og:description" content="Practical solutions for everyday phone, Wi-Fi and computer problems.">
+
+  <!-- Replace YOURDOMAIN.com when you have your real domain -->
+  <link rel="canonical" href="https://YOURDOMAIN.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Keep your existing stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Homepage-only styles: no changes to style.css required -->
+  <style>
+    :root {
+      --ff-bg: #071426;
+      --ff-panel: #0c1c31;
+      --ff-panel-light: #10243d;
+      --ff-blue: #4f8cff;
+      --ff-cyan: #57e5dc;
+      --ff-text: #f2f6ff;
+      --ff-muted: #9caec6;
+      --ff-border: rgba(166, 195, 235, .14);
+      --ff-radius: 20px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: #071426;
+      color: var(--ff-text);
+      font-family: "DM Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body, button, input {
+      font-family: "DM Sans", sans-serif;
+    }
+
+    body a {
+      text-decoration: none;
+    }
+
+    .ff-shell {
+      width: min(1160px, calc(100% - 44px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .ff-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(7, 20, 38, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(166, 195, 235, .1);
+    }
+
+    .ff-header-inner {
+      width: min(1160px, calc(100% - 44px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .ff-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: #fff;
+      font: 700 25px "Space Grotesk", sans-serif;
+      letter-spacing: -1.2px;
+    }
+
+    .ff-logo-mark {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #071426;
+      background: linear-gradient(135deg, #68f2dc, #6c9dff);
+      box-shadow: 0 5px 24px rgba(79, 140, 255, .2);
+    }
+
+    .ff-logo-mark svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .ff-logo .ff-brand-it {
+      color: var(--ff-cyan);
+    }
+
+    .ff-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .ff-nav a {
+      color: #b5c3d7;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .ff-nav a:hover {
+      color: #fff;
+    }
+
+    .ff-nav .ff-nav-cta {
+      padding: 11px 16px;
+      color: #071426;
+      background: #b9f6ed;
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    /* Hero */
+    .ff-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-bottom: 1px solid var(--ff-border);
+      background:
+        radial-gradient(ellipse at 77% 45%, rgba(43, 104, 190, .20), transparent 42%),
+        radial-gradient(ellipse at 15% 0%, rgba(43, 104, 190, .13), transparent 42%),
+        #071426;
+    }
+
+    .ff-hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      opacity: .25;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(128, 164, 215, .08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128, 164, 215, .08) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 95%);
+    }
+
+    .ff-hero-inner {
+      width: min(1160px, calc(100% - 44px));
+      min-height: 565px;
+      margin: auto;
+      padding: 76px 0 65px;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 34px;
+      box-sizing: border-box;
+    }
+
+    .ff-hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 610px;
+    }
+
+    .ff-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 23px;
+      padding: 8px 12px;
+      border: 1px solid rgba(87, 229, 220, .2);
+      border-radius: 999px;
+      background: rgba(87, 229, 220, .06);
+      color: #a6f7ee;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .ff-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ff-cyan);
+      box-shadow: 0 0 13px var(--ff-cyan);
+    }
+
+    .ff-hero h1 {
+      margin: 0;
+      max-width: 630px;
+      color: #f5f8ff;
+      font: 700 clamp(43px, 5.4vw, 70px)/1.04 "Space Grotesk", sans-serif;
+      letter-spacing: -3.5px;
+    }
+
+    .ff-hero h1 .ff-gradient {
+      color: #77a9ff;
+      background: linear-gradient(100deg, #7eacff 10%, #70e8df 92%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ff-hero-description {
+      max-width: 485px;
+      margin: 24px 0 28px;
+      color: #a9bad1;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .ff-search {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 490px;
+      padding: 7px;
+      border: 1px solid rgba(166, 195, 235, .2);
+      border-radius: 15px;
+      background: rgba(14, 32, 54, .93);
+      box-shadow: 0 14px 42px rgba(0, 0, 0, .16);
+    }
+
+    .ff-search-icon {
+      flex-shrink: 0;
+      width: 21px;
+      height: 21px;
+      margin-left: 10px;
+      color: #8298b5;
+    }
+
+    .ff-search input {
+      width: 100%;
+      min-width: 0;
+      height: 43px;
+      padding: 0 6px;
+      outline: none;
+      border: 0;
+      color: #f5f8ff;
+      background: transparent;
+      font-size: 13px;
+    }
+
+    .ff-search input::placeholder {
+      color: #8293ab;
+    }
+
+    .ff-search:focus-within {
+      border-color: rgba(87, 229, 220, .7);
+      box-shadow: 0 0 0 3px rgba(87, 229, 220, .08);
+    }
+
+    .ff-search button {
+      flex-shrink: 0;
+      min-height: 43px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 10px;
+      color: #071426;
+      background: linear-gradient(110deg, #83f0df, #9cc7ff);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s, filter .2s;
+    }
+
+    .ff-search button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.06);
+    }
+
+    .ff-search-hint {
+      margin: 12px 0 0 4px;
+      color: #8094ae;
+      font-size: 11px;
+    }
+
+    .ff-search-hint span {
+      color: #bdcce0;
+    }
+
+    .ff-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      margin-top: 30px;
+      color: #b2c2d7;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .ff-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .ff-trust-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--ff-cyan);
+    }
+
+    /* Animated technology illustration */
+    .ff-visual {
+      position: relative;
+      min-width: 0;
+      min-height: 405px;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .ff-orbit {
+      position: absolute;
+      width: min(390px, 90%);
+      aspect-ratio: 1;
+      border: 1px solid rgba(128, 170, 231, .14);
+      border-radius: 50%;
+      transform: rotate(-18deg) scaleY(.76);
+    }
+
+    .ff-orbit::before,
+    .ff-orbit::after {
+      position: absolute;
+      content: "";
+      border: 1px solid rgba(128, 170, 231, .11);
+      border-radius: 50%;
+      inset: 30px;
+    }
+
+    .ff-orbit::after {
+      inset: 62px;
+    }
+
+    .ff-visual-glow {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(61, 120, 224, .15);
+      filter: blur(48px);
+    }
+
+    .ff-device-stage {
+      position: relative;
+      z-index: 2;
+      width: min(390px, 100%);
+      height: 325px;
+      display: grid;
+      place-items: center;
+    }
+
+    .ff-device {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transform: translateY(15px) scale(.92);
+      animation: ff-device-cycle 16s infinite;
+    }
+
+    .ff-device:nth-child(1) { animation-delay: 0s; }
+    .ff-device:nth-child(2) { animation-delay: 4s; }
+    .ff-device:nth-child(3) { animation-delay: 8s; }
+    .ff-device:nth-child(4) { animation-delay: 12s; }
+
+    @keyframes ff-device-cycle {
+      0%   { opacity: 0; transform: translateY(15px) scale(.92); }
+      5%   { opacity: 1; transform: translateY(0) scale(1); }
+      22%  { opacity: 1; transform: translateY(-4px) scale(1); }
+      25%  { opacity: 0; transform: translateY(-15px) scale(.96); }
+      100% { opacity: 0; transform: translateY(15px) scale(.92); }
+    }
+
+    .ff-device-art {
+      width: min(280px, 76%);
+      max-height: 255px;
+      overflow: visible;
+      filter: drop-shadow(0 24px 26px rgba(0, 0, 0, .3));
+    }
+
+    .ff-device-label {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 15px;
+      border: 1px solid rgba(166, 195, 235, .18);
+      border-radius: 12px;
+      background: rgba(12, 28, 49, .92);
+      color: #edf5ff;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
+      transform: translateX(-50%);
+    }
+
+    .ff-device-label svg {
+      width: 17px;
+      height: 17px;
+      color: var(--ff-cyan);
+    }
+
+    .ff-floating-tag {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(166, 195, 235, .14);
+      border-radius: 12px;
+      background: rgba(12, 28, 49, .92);
+      color: #d9e7f8;
+      font-size: 10px;
+      font-weight: 700;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, .16);
+      animation: ff-float 4s ease-in-out infinite;
+    }
+
+    .ff-floating-tag svg {
+      width: 18px;
+      height: 18px;
+      color: var(--ff-cyan);
+    }
+
+    .ff-floating-one {
+      top: 35px;
+      right: 0;
+    }
+
+    .ff-floating-two {
+      bottom: 53px;
+      left: 0;
+      animation-delay: -2s;
+    }
+
+    @keyframes ff-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Benefits strip */
+    .ff-benefits {
+      border-bottom: 1px solid var(--ff-border);
+      background: #09182b;
+    }
+
+    .ff-benefits-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-block: 25px;
+    }
+
+    .ff-benefit {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .ff-benefit-icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(87, 229, 220, .17);
+      border-radius: 13px;
+      background: rgba(87, 229, 220, .06);
+      color: var(--ff-cyan);
+    }
+
+    .ff-benefit-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .ff-benefit strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #f1f6ff;
+      font-size: 12px;
+    }
+
+    .ff-benefit span {
+      display: block;
+      color: #8fa3bd;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* Guide section */
+    .ff-guides-section {
+      padding: 78px 0 84px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(30, 70, 124, .12), transparent 55%),
+        #071426;
+    }
+
+    .ff-section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .ff-section-kicker {
+      margin: 0 0 10px;
+      color: var(--ff-cyan);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .ff-section-heading h2 {
+      margin: 0;
+      color: #f4f7ff;
+      font: 700 clamp(27px, 3.3vw, 39px)/1.2 "Space Grotesk", sans-serif;
+      letter-spacing: -1.3px;
+    }
+
+    .ff-section-description {
+      max-width: 440px;
+      margin: 12px 0 0;
+      color: #95a9c3;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .ff-guide-count {
+      flex-shrink: 0;
+      padding: 9px 12px;
+      border: 1px solid var(--ff-border);
+      border-radius: 10px;
+      color: #b8c8dd;
+      background: #0b1a2e;
+      font-size: 11px;
+    }
+
+    .ff-chips {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin: 0 0 27px;
+    }
+
+    .ff-chip {
+      padding: 10px 15px;
+      border: 1px solid rgba(166, 195, 235, .15);
+      border-radius: 999px;
+      color: #a9bad1;
+      background: #0b1a2e;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, color .2s, border-color .2s, transform .2s;
+    }
+
+    .ff-chip:hover {
+      border-color: rgba(87, 229, 220, .4);
+      color: #fff;
+    }
+
+    .ff-chip.on {
+      border-color: transparent;
+      color: #061629;
+      background: linear-gradient(110deg, #8bf0df, #a6caff);
+    }
+
+    .ff-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .ff-card {
+      position: relative;
+      min-height: 185px;
+      padding: 23px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: hidden;
+      border: 1px solid rgba(166, 195, 235, .13);
+      border-radius: var(--ff-radius);
+      background: linear-gradient(145deg, #0d1e33, #0a192c);
+      transition: transform .22s, border-color .22s, box-shadow .22s;
+    }
+
+    .ff-card::after {
+      position: absolute;
+      right: -55px;
+      bottom: -85px;
+      width: 145px;
+      height: 145px;
+      content: "";
+      border-radius: 50%;
+      background: rgba(79, 140, 255, .07);
+      filter: blur(22px);
+      pointer-events: none;
+    }
+
+    .ff-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(87, 229, 220, .36);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, .16);
+    }
+
+    .ff-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .ff-card-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #83e9df;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+    }
+
+    .ff-card-date {
+      color: #7188a5;
+      font-size: 10px;
+    }
+
+    .ff-card h3 {
+      margin: 0 0 10px;
+      color: #edf4ff;
+      font: 600 19px/1.45 "Space Grotesk", sans-serif;
+      letter-spacing: -.35px;
+    }
+
+    .ff-card p {
+      margin: 0;
+      color: #9bacc2;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .ff-card-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 21px;
+      color: #a8c9ff;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .ff-card-read svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .2s;
+    }
+
+    .ff-card:hover .ff-card-read svg {
+      transform: translateX(4px);
+    }
+
+    .ff-empty {
+      grid-column: 1 / -1;
+      padding: 40px 20px;
+      border: 1px dashed var(--ff-border);
+      border-radius: var(--ff-radius);
+      color: #a9bad1;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* Ad area */
+    .ff-ad {
+      min-height: 80px;
+      margin-top: 30px;
+      padding: 17px;
+      box-sizing: border-box;
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(166, 195, 235, .16);
+      border-radius: 14px;
+      color: #6f849f;
+      background: rgba(10, 25, 44, .55);
+      font-size: 10px;
+      letter-spacing: .5px;
+      text-align: center;
+    }
+
+    /* Footer */
+    .ff-footer {
+      border-top: 1px solid var(--ff-border);
+      background: #050f1d;
+    }
+
+    .ff-footer-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding-block: 35px;
+    }
+
+    .ff-footer-brand p {
+      max-width: 320px;
+      margin: 12px 0 0;
+      color: #8296b0;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .ff-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .ff-footer-links a {
+      color: #a7b7cc;
+      font-size: 11px;
+      transition: color .2s;
+    }
+
+    .ff-footer-links a:hover {
+      color: var(--ff-cyan);
+    }
+
+    .ff-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 17px;
+      border-top: 1px solid rgba(166, 195, 235, .09);
+      color: #6f839e;
+      font-size: 10px;
+    }
+
+    .ff-footer-bottom p {
+      margin: 0;
+    }
+
+    /* Focus visibility */
+    .ff-page a:focus-visible,
+    .ff-page button:focus-visible,
+    .ff-page input:focus-visible {
+      outline: 2px solid var(--ff-cyan);
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 1500px) {
+      .ff-hero-inner {
+        min-height: 620px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .ff-hero-inner {
+        min-height: auto;
+        padding-block: 65px;
+        grid-template-columns: 1fr .82fr;
+        gap: 15px;
+      }
+
+      .ff-hero h1 {
+        font-size: clamp(41px, 6vw, 57px);
+        letter-spacing: -2.5px;
+      }
+
+      .ff-visual {
+        min-height: 350px;
+      }
+
+      .ff-device-stage {
+        height: 285px;
+      }
+
+      .ff-floating-one {
+        right: -5px;
+      }
+
+      .ff-floating-two {
+        left: -5px;
+      }
+
+      .ff-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .ff-shell,
+      .ff-header-inner,
+      .ff-hero-inner {
+        width: min(100% - 32px, 500px);
+      }
+
+      .ff-header-inner {
+        min-height: 68px;
+        gap: 12px;
+      }
+
+      .ff-logo {
+        font-size: 22px;
+      }
+
+      .ff-logo-mark {
+        width: 33px;
+        height: 33px;
+      }
+
+      .ff-nav {
+        gap: 15px;
+      }
+
+      .ff-nav a {
+        font-size: 11px;
+      }
+
+      .ff-nav .ff-nav-cta {
+        padding: 9px 10px;
+      }
+
+      .ff-hero-inner {
+        padding-block: 51px 35px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .ff-eyebrow {
+        margin-bottom: 18px;
+        font-size: 9px;
+      }
+
+      .ff-hero h1 {
+        max-width: 490px;
+        font-size: clamp(42px, 11.3vw, 57px);
+        letter-spacing: -2.7px;
+      }
+
+      .ff-hero-description {
+        margin: 18px 0 23px;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .ff-search {
+        gap: 4px;
+        padding: 5px;
+      }
+
+      .ff-search-icon {
+        width: 18px;
+        height: 18px;
+        margin-left: 6px;
+      }
+
+      .ff-search input {
+        font-size: 12px;
+      }
+
+      .ff-search button {
+        min-height: 40px;
+        padding-inline: 13px;
+        font-size: 12px;
+      }
+
+      .ff-trust-row {
+        gap: 12px;
+        margin-top: 21px;
+        font-size: 10px;
+      }
+
+      .ff-visual {
+        min-height: 290px;
+        margin-top: -3px;
+      }
+
+      .ff-orbit {
+        width: 285px;
+      }
+
+      .ff-device-stage {
+        width: 310px;
+        max-width: 100%;
+        height: 260px;
+      }
+
+      .ff-device-art {
+        width: 220px;
+        max-height: 205px;
+      }
+
+      .ff-device-label {
+        bottom: 0;
+        font-size: 11px;
+      }
+
+      .ff-floating-one {
+        top: 10px;
+        right: 0;
+      }
+
+      .ff-floating-two {
+        bottom: 35px;
+        left: 0;
+      }
+
+      .ff-floating-tag {
+        padding: 8px 10px;
+        font-size: 9px;
+      }
+
+      .ff-benefits-inner {
+        grid-template-columns: 1fr;
+        gap: 19px;
+        padding-block: 23px;
+      }
+
+      .ff-benefit-icon {
+        width: 39px;
+        height: 39px;
+      }
+
+      .ff-guides-section {
+        padding: 55px 0 58px;
+      }
+
+      .ff-section-heading {
+        align-items: flex-start;
+        margin-bottom: 23px;
+      }
+
+      .ff-section-heading h2 {
+        font-size: 30px;
+      }
+
+      .ff-section-description {
+        font-size: 12px;
+      }
+
+      .ff-guide-count {
+        display: none;
+      }
+
+      .ff-chips {
+        gap: 7px;
+        margin-bottom: 20px;
+      }
+
+      .ff-chip {
+        padding: 9px 12px;
+        font-size: 10px;
+      }
+
+      .ff-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .ff-card {
+        min-height: 165px;
+        padding: 20px;
+      }
+
+      .ff-card h3 {
+        font-size: 18px;
+      }
+
+      .ff-footer-main {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+        padding-block: 30px;
+      }
+
+      .ff-footer-links {
+        gap: 17px;
+      }
+
+      .ff-footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        line-height: 1.6;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .ff-device {
+        opacity: 0;
+      }
+
+      .ff-device:first-child {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="ff-page">
+
+  <!-- Header -->
+  <header class="ff-header">
+    <div class="ff-header-inner">
+      <a class="ff-logo" href="index.html" aria-label="FixItFast home">
+        <span class="ff-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13.2 2.8 5.8 13h5.1l-.8 8.2L18.5 10h-5.2l-.1-7.2Z"
+              stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span>Fix<span class="ff-brand-it">It</span>Fast</span>
+      </a>
+
+      <nav class="ff-nav" aria-label="Main navigation">
+        <a href="#guides">Guides</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="ff-nav-cta" href="#guides">Explore fixes ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="ff-hero">
+    <div class="ff-hero-inner">
+      <div class="ff-hero-copy">
+        <div class="ff-eyebrow">
+          <span class="ff-status-dot"></span>
+          Your everyday tech helper
+        </div>
+
+        <h1>
+          Tech problems?<br>
+          <span class="ff-gradient">Fixed. Fast.</span>
+        </h1>
+
+        <p class="ff-hero-description">
+          Simple, practical guides for the tech problems that slow you down.
+          Get your phone, Wi-Fi and computer working again, one step at a time.
+        </p>
+
+        <form class="ff-search" id="ff-search-form" role="search">
+          <svg class="ff-search-icon" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="6.8"/>
+            <path d="m16 16 4.5 4.5"/>
+          </svg>
+          <input id="q" type="search" placeholder="Search Wi-Fi, storage, battery..."
+                 aria-label="Search troubleshooting guides" autocomplete="off">
+          <button type="submit">Find a fix <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="ff-search-hint">
+          Popular searches: <span>slow Wi-Fi</span> · <span>phone storage</span> · <span>PC issues</span>
+        </p>
+
+        <div class="ff-trust-row">
+          <span class="ff-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="m5 12 4 4L19 6"/>
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+            Easy-to-follow steps
+          </span>
+          <span class="ff-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 2"/>
+            </svg>
+            Save time
+          </span>
+          <span class="ff-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-3Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+            Practical advice
+          </span>
+        </div>
+      </div>
+
+      <!-- Four animated illustrations: PC, Wi-Fi, phone, USB -->
+      <div class="ff-visual" aria-label="Computer, Wi-Fi, mobile phone and USB illustrations">
+        <div class="ff-orbit"></div>
+        <div class="ff-visual-glow"></div>
+
+        <div class="ff-floating-tag ff-floating-one">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="m5 12 4 4L19 6"/>
+          </svg>
+          Clear, helpful solutions
+        </div>
+
+        <div class="ff-floating-tag ff-floating-two">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3v18M5 10l7-7 7 7M7 14l5 5 5-5"/>
+          </svg>
+          Step-by-step guidance
+        </div>
+
+        <div class="ff-device-stage">
+
+          <!-- 1. Desktop computer -->
+          <div class="ff-device">
+            <svg class="ff-device-art" viewBox="0 0 300 245" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="pcFrame" x1="36" y1="20" x2="265" y2="220">
+                  <stop stop-color="#9bb8e8"/>
+                  <stop offset="1" stop-color="#4b6895"/>
+                </linearGradient>
+                <linearGradient id="pcScreen" x1="60" y1="40" x2="238" y2="185">
+                  <stop stop-color="#183c6b"/>
+                  <stop offset="1" stop-color="#091a30"/>
+                </linearGradient>
+              </defs>
+              <rect x="27" y="20" width="246" height="157" rx="13"
+                    fill="url(#pcFrame)" stroke="#bdd5fa" stroke-width="1.5"/>
+              <rect x="36" y="29" width="228" height="139" rx="7" fill="url(#pcScreen)"/>
+              <path d="M36 127 89 74l40 38 45-51 90 81v26H36v-41Z"
+                    fill="#24558b" opacity=".6"/>
+              <path d="M36 145 95 109l38 22 48-34 83 49v22H36v-23Z"
+                    fill="#2c94ae" opacity=".48"/>
+              <rect x="124" y="177" width="52" height="26" rx="3" fill="#7895bb"/>
+              <path d="M98 207h104l-10 10h-84l-10-10Z" fill="#b4c9e7"/>
+              <rect x="50" y="42" width="78" height="5" rx="2.5" fill="#a3c5fa" opacity=".8"/>
+              <rect x="50" y="54" width="47" height="4" rx="2" fill="#648cbf" opacity=".9"/>
+              <rect x="50" y="66" width="63" height="4" rx="2" fill="#648cbf" opacity=".7"/>
+              <circle cx="249" cy="156" r="3" fill="#71eee0"/>
+            </svg>
+            <div class="ff-device-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="13" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
+              </svg>
+              PC & computer fixes
+            </div>
+          </div>
+
+          <!-- 2. Wi-Fi -->
+          <div class="ff-device">
+            <svg class="ff-device-art" viewBox="0 0 300 245" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="wifiBody" x1="65" y1="110" x2="238" y2="220">
+                  <stop stop-color="#c2d6f4"/>
+                  <stop offset="1" stop-color="#647fa8"/>
+                </linearGradient>
+                <linearGradient id="wifiSignal" x1="80" y1="30" x2="225" y2="150">
+                  <stop stop-color="#7cf0df"/>
+                  <stop offset="1" stop-color="#649dff"/>
+                </linearGradient>
+              </defs>
+              <path d="M55 86Q150 3 245 86" stroke="url(#wifiSignal)" stroke-width="10" stroke-linecap="round"/>
+              <path d="M79 109Q150 49 221 109" stroke="url(#wifiSignal)" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+              <path d="M106 132Q150 96 194 132" stroke="url(#wifiSignal)" stroke-width="10" stroke-linecap="round" opacity=".75"/>
+              <circle cx="150" cy="151" r="7" fill="#8cf4e5"/>
+              <rect x="54" y="160" width="192" height="49" rx="12" fill="url(#wifiBody)"/>
+              <rect x="65" y="169" width="170" height="30" rx="7" fill="#152c4a"/>
+              <circle cx="84" cy="184" r="3.5" fill="#71eee0"/>
+              <circle cx="96" cy="184" r="3.5" fill="#71eee0" opacity=".7"/>
+              <circle cx="108" cy="184" r="3.5" fill="#71eee0" opacity=".45"/>
+              <path d="M170 184h48" stroke="#6587b5" stroke-width="3" stroke-linecap="round"/>
+              <path d="M76 216h148" stroke="#7d9cbd" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+            </svg>
+            <div class="ff-device-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M2 8.8a15 15 0 0 1 20 0M5 12a10 10 0 0 1 14 0m-11 3.5a5 5 0 0 1 8 0"/>
+                <circle cx="12" cy="19" r="1" fill="currentColor"/>
+              </svg>
+              Wi-Fi & internet
+            </div>
+          </div>
+
+          <!-- 3. Mobile phone -->
+          <div class="ff-device">
+            <svg class="ff-device-art" viewBox="0 0 300 245" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="phoneFrame" x1="98" y1="13" x2="205" y2="229">
+                  <stop stop-color="#b7cbee"/>
+                  <stop offset="1" stop-color="#4d6993"/>
+                </linearGradient>
+                <linearGradient id="phoneScreen" x1="107" y1="30" x2="195" y2="210">
+                  <stop stop-color="#183d68"/>
+                  <stop offset="1" stop-color="#0b1b31"/>
+                </linearGradient>
+              </defs>
+              <rect x="94" y="9" width="112" height="225" rx="20"
+                    fill="url(#phoneFrame)" stroke="#d0e0f9" stroke-width="1.5"/>
+              <rect x="102" y="18" width="96" height="207" rx="14" fill="url(#phoneScreen)"/>
+              <rect x="133" y="24" width="34" height="5" rx="2.5" fill="#627fa7"/>
+              <rect x="114" y="47" width="72" height="67" rx="10" fill="#214a7a"/>
+              <circle cx="150" cy="76" r="17" stroke="#7aeadd" stroke-width="3"/>
+              <path d="m143 76 5 5 10-12" stroke="#7aeadd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="114" y="124" width="72" height="9" rx="4.5" fill="#7c9fcf" opacity=".8"/>
+              <rect x="114" y="141" width="51" height="6" rx="3" fill="#597da9"/>
+              <rect x="114" y="157" width="72" height="24" rx="7" fill="#1b3d65" stroke="#365c89"/>
+              <circle cx="127" cy="169" r="4" fill="#78eddf"/>
+              <rect x="137" y="166" width="39" height="5" rx="2.5" fill="#7596c2"/>
+              <rect x="114" y="190" width="72" height="24" rx="7" fill="#1b3d65" stroke="#365c89"/>
+              <circle cx="127" cy="202" r="4" fill="#80adff"/>
+              <rect x="137" y="199" width="39" height="5" rx="2.5" fill="#7596c2"/>
+            </svg>
+            <div class="ff-device-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="6" y="2" width="12" height="20" rx="3"/>
+                <path d="M10 5h4m-3 13h2"/>
+              </svg>
+              Phone & mobile help
+            </div>
+          </div>
+
+          <!-- 4. USB flash drive -->
+          <div class="ff-device">
+            <svg class="ff-device-art" viewBox="0 0 300 245" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="usbBody" x1="72" y1="65" x2="235" y2="184">
+                  <stop stop-color="#b9d0f3"/>
+                  <stop offset=".48" stop-color="#7296c7"/>
+                  <stop offset="1" stop-color="#3d5d89"/>
+                </linearGradient>
+                <linearGradient id="usbMetal" x1="188" y1="102" x2="256" y2="152">
+                  <stop stop-color="#e4f0ff"/>
+                  <stop offset="1" stop-color="#809bbf"/>
+                </linearGradient>
+              </defs>
+              <g transform="rotate(-28 150 125)">
+                <rect x="48" y="88" width="164" height="76" rx="16" fill="url(#usbBody)" stroke="#c4d8f5" stroke-width="1.5"/>
+                <path d="M61 101h120" stroke="#d9e7fa" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+                <rect x="188" y="104" width="60" height="44" rx="4" fill="url(#usbMetal)"/>
+                <rect x="213" y="111" width="11" height="12" rx="1.5" fill="#415b7e"/>
+                <rect x="231" y="111" width="11" height="12" rx="1.5" fill="#415b7e"/>
+                <rect x="213" y="129" width="11" height="12" rx="1.5" fill="#415b7e"/>
+                <rect x="231" y="129" width="11" height="12" rx="1.5" fill="#415b7e"/>
+                <circle cx="75" cy="126" r="9" fill="#243f65" stroke="#b8d2f6" stroke-width="2"/>
+                <circle cx="75" cy="126" r="3" fill="#7aeadd"/>
+                <rect x="96" y="113" width="62" height="5" rx="2.5" fill="#e0ecfb" opacity=".7"/>
+                <rect x="96" y="124" width="44" height="5" rx="2.5" fill="#e0ecfb" opacity=".4"/>
+                <rect x="96" y="135" width="53" height="5" rx="2.5" fill="#e0ecfb" opacity=".4"/>
+              </g>
+              <circle cx="228" cy="57" r="18" fill="#163b52" stroke="#5ce4d9" stroke-opacity=".5"/>
+              <path d="m219 57 6 6 12-13" stroke="#7cf0df" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="ff-device-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="4" y="8" width="12" height="8" rx="2"/>
+                <path d="M16 10h4v4h-4M7 8V5m4 3V5"/>
+              </svg>
+              USB & storage problems
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="ff-benefits" aria-label="Why use FixItFast">
+    <div class="ff-shell ff-benefits-inner">
+      <div class="ff-benefit">
+        <div class="ff-benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-3Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <strong>Clear instructions</strong>
+          <span>Practical steps without the jargon.</span>
+        </div>
+      </div>
+
+      <div class="ff-benefit">
+        <div class="ff-benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 8v4l3 2"/>
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M5 3 3 5m16-2 2 2"/>
+          </svg>
+        </div>
+        <div>
+          <strong>Less wasted time</strong>
+          <span>Find a useful fix and get moving.</span>
+        </div>
+      </div>
+
+      <div class="ff-benefit">
+        <div class="ff-benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 19V5m0 14h16"/>
+            <path d="m7 15 4-4 3 2 5-7"/>
+            <path d="M15 6h4v4"/>
+          </svg>
+        </div>
+        <div>
+          <strong>Everyday tech help</strong>
+          <span>Phones, computers, connectivity and more.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides -->
+  <main id="guides" class="ff-guides-section">
+    <div class="ff-shell">
+      <div class="ff-section-heading">
+        <div>
+          <p class="ff-section-kicker">The FixItFast library</p>
+          <h2>Find your next fix.</h2>
+          <p class="ff-section-description">
+            Browse our practical troubleshooting guides and find a solution
+            for your everyday tech problems.
+          </p>
+        </div>
+        <span class="ff-guide-count" id="ff-guide-count">Loading guides…</span>
+      </div>
+
+      <div class="ff-chips" id="chips" aria-label="Filter guides by category"></div>
+      <div class="ff-grid" id="grid" aria-live="polite"></div>
+
+      <!-- Placeholder only: connect approved ad code after approval -->
+      <div class="ff-ad" aria-label="Advertisement area">
+        Advertisement
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="ff-footer">
+    <div class="ff-shell ff-footer-main">
+      <div class="ff-footer-brand">
+        <a class="ff-logo" href="index.html">
+          <span class="ff-logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M13.2 2.8 5.8 13h5.1l-.8 8.2L18.5 10h-5.2l-.1-7.2Z"
+                stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span>Fix<span class="ff-brand-it">It</span>Fast</span>
+        </a>
+        <p>
+          Making everyday technology easier to understand, troubleshoot
+          and use — one helpful guide at a time.
+        </p>
+      </div>
+
+      <nav class="ff-footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy policy</a>
+      </nav>
+    </div>
+
+    <div class="ff-shell ff-footer-bottom">
+      <p>© <span id="y"></span> FixItFast. All rights reserved.</p>
+      <p>Simple tech help. One step at a time.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- Your existing article data stays unchanged -->
 <script src="articles.js"></script>
 <script>
-const today=new Date().toISOString().slice(0,10);
-const live=ARTICLES.filter(a=>a.date<=today).sort((a,b)=>b.date.localeCompare(a.date));
-let cat="All";const grid=document.getElementById("grid"),q=document.getElementById("q");
-function chips(){const cs=["All",...new Set(live.map(a=>a.category))];
- document.getElementById("chips").innerHTML=cs.map(c=>`<button class="chip ${c==cat?"on":""}" data-c="${c}">${c}</button>`).join("");
- document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{cat=b.dataset.c;chips();draw()})}
-function draw(){const t=q.value.toLowerCase();
- const l=live.filter(a=>(cat=="All"||a.category==cat)&&(a.title+a.summary).toLowerCase().includes(t));
- grid.innerHTML=l.length?l.map(a=>`<a class="card" href="article.html?id=${a.id}"><span class="meta">${a.category} · ${a.date}</span><h3>${a.title}</h3><p>${a.summary}</p></a>`).join(""):"<p>No guides found yet. Check back tomorrow.</p>"}
-q.oninput=draw;chips();draw();document.getElementById("y").textContent=new Date().getFullYear();
-</script></body></html>
+(function () {
+  "use strict";
+
+  const grid = document.getElementById("grid");
+  const searchInput = document.getElementById("q");
+  const searchForm = document.getElementById("ff-search-form");
+  const chipsContainer = document.getElementById("chips");
+  const guideCount = document.getElementById("ff-guide-count");
+
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // Keep the existing ARTICLES data format.
+  const articles = Array.isArray(window.ARTICLES) ? window.ARTICLES : [];
+  const today = new Date();
+  const todayString = [
+    today.getFullYear(),
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0")
+  ].join("-");
+
+  const live = articles
+    .filter(function (article) {
+      return article && article.date && article.date <= todayString;
+    })
+    .sort(function (a, b) {
+      return String(b.date).localeCompare(String(a.date));
+    });
+
+  let category = "All";
+
+  function escapeHTML(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, function (char) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[char];
+    });
+  }
+
+  function makeArticleURL(id) {
+    return "article.html?id=" + encodeURIComponent(String(id));
+  }
+
+  function drawChips() {
+    const categories = ["All"].concat(
+      Array.from(new Set(live.map(function (article) {
+        return article.category || "General";
+      })))
+    );
+
+    chipsContainer.innerHTML = categories.map(function (item) {
+      return '<button type="button" class="ff-chip' +
+        (item === category ? ' on' : '') +
+        '" data-category="' + escapeHTML(item) + '"' +
+        (item === category ? ' aria-pressed="true"' : ' aria-pressed="false"') +
+        '>' + escapeHTML(item) + '</button>';
+    }).join("");
+
+    chipsContainer.querySelectorAll(".ff-chip").forEach(function (button) {
+      button.addEventListener("click", function () {
+        category = button.dataset.category;
+        drawChips();
+        drawGuides();
+      });
+    });
+  }
+
+  function drawGuides() {
+    const term = searchInput.value.trim().toLowerCase();
+
+    const matches = live.filter(function (article) {
+      const articleCategory = article.category || "General";
+      const searchableText = [
+        article.title || "",
+        article.summary || "",
+        article.category || ""
+      ].join(" ").toLowerCase();
+
+      return (category === "All" || articleCategory === category) &&
+        searchableText.includes(term);
+    });
+
+    guideCount.textContent = matches.length + (
+      matches.length === 1 ? " guide" : " guides"
+    );
+
+    if (!matches.length) {
+      grid.innerHTML =
+        '<div class="ff-empty">' +
+          '<strong>No matching guides found.</strong><br>' +
+          'Try another search term or select a different category.' +
+        '</div>';
+      return;
+    }
+
+    grid.innerHTML = matches.map(function (article) {
+      const articleCategory = article.category || "General";
+      const articleDate = escapeHTML(article.date || "");
+      const articleURL = makeArticleURL(article.id);
+
+      return (
+        '<a class="ff-card" href="' + escapeHTML(articleURL) + '">' +
+          '<div class="ff-card-top">' +
+            '<span class="ff-card-category">' +
+              '<span aria-hidden="true">✦</span> ' +
+              escapeHTML(articleCategory) +
+            '</span>' +
+            '<span class="ff-card-date">' + articleDate + '</span>' +
+          '</div>' +
+          '<h3>' + escapeHTML(article.title || "Untitled guide") + '</h3>' +
+          '<p>' + escapeHTML(article.summary || "Open this guide for troubleshooting steps.") + '</p>' +
+          '<span class="ff-card-read">Read the guide ' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">' +
+              '<path d="M5 12h14m-6-6 6 6-6 6"/>' +
+            '</svg>' +
+          '</span>' +
+        '</a>'
+      );
+    }).join("");
+  }
+
+  searchInput.addEventListener("input", drawGuides);
+
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    drawGuides();
+    document.getElementById("guides").scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth"
+    });
+  });
+
+  drawChips();
+  drawGuides();
+})();
+</script>
+</body>
+</html>

@@ -1,1 +1,570 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About FixItFast</title><meta name="description" content="FixItFast publishes step-by-step guides that fix everyday phone, Wi-Fi and computer problems."><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4&display=swap"><link rel="stylesheet" href="style.css"><!-- Paste your Google AdSense script here after approval --></head><body><header><a class="logo" href="index.html">Fix<b>It</b>Fast</a><nav><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header><article><h1>About FixItFast</h1><p>FixItFast is a free guide site for everyday tech problems: slow Wi-Fi, full phones, laptops that will not start, and apps that keep crashing.</p><h2>Why this site exists</h2><p>Most tech help online is long, confusing or full of jargon. We write short, numbered steps that you can follow in a few minutes, in plain language.</p><h2>How we write our guides</h2><p>Each guide describes a real problem, explains the likely cause, and gives the fixes in the order that is quickest to try. We update guides when phones and software change.</p><h2>Get in touch</h2><p>Found a mistake or have a problem you want covered? Use the <a href="contact.html">contact page</a>.</p><p><em>Site owner: YOUR NAME. Replace this line with a short note about yourself and why you write these guides.</em></p></article><footer><a href="about.html">About</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a><br>© <span id="y"></span> FixItFast. All rights reserved.<script>document.getElementById("y").textContent=new Date().getFullYear()</script></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About FixItFast | Simple Tech Solutions</title>
+  <meta name="description" content="Discover FixItFast: practical, easy-to-follow guides for solving everyday phone, Wi-Fi, computer and app problems.">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body.about-page {
+      --about-bg: #080d1c;
+      --about-panel: #111a2e;
+      --about-text: #f3f7ff;
+      --about-muted: #a9b8d0;
+      --about-blue: #6c8cff;
+      --about-cyan: #50e3e0;
+      background: var(--about-bg);
+      color: var(--about-text);
+      font-family: "Source Serif 4", Georgia, serif;
+      min-height: 100vh;
+    }
+
+    .about-page *,
+    .about-page *::before,
+    .about-page *::after {
+      box-sizing: border-box;
+    }
+
+    .about-page header {
+      background: #0b1224;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .about-page .about-hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 76px 6vw 68px;
+      background:
+        radial-gradient(ellipse at 85% 25%, rgba(80,227,224,.14), transparent 32%),
+        radial-gradient(ellipse at 15% 80%, rgba(108,140,255,.17), transparent 38%),
+        #080d1c;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .about-page .about-hero-inner {
+      max-width: 1080px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .about-page .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--about-cyan);
+      font: 700 .78rem "Bricolage Grotesque", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: 18px;
+    }
+
+    .about-page .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--about-cyan);
+    }
+
+    .about-page .about-hero h1 {
+      max-width: 680px;
+      margin: 0 0 22px;
+      color: var(--about-text);
+      font: 800 clamp(2.6rem, 6vw, 4.8rem)/1.02 "Bricolage Grotesque", sans-serif;
+      letter-spacing: -.045em;
+    }
+
+    .about-page .gradient-text {
+      background: linear-gradient(100deg, #6c8cff, #50e3e0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .about-page .hero-description {
+      max-width: 600px;
+      color: var(--about-muted);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .about-page .hero-art {
+      display: grid;
+      place-items: center;
+      min-height: 260px;
+      position: relative;
+    }
+
+    .about-page .orbit {
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(108,140,255,.4);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      position: relative;
+      animation: about-float 5s ease-in-out infinite;
+    }
+
+    .about-page .orbit::before,
+    .about-page .orbit::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(80,227,224,.23);
+      border-radius: 50%;
+    }
+
+    .about-page .orbit::before {
+      inset: 18px;
+    }
+
+    .about-page .orbit::after {
+      inset: -18px;
+      border-style: dashed;
+      animation: about-spin 24s linear infinite;
+    }
+
+    .about-page .hero-icon {
+      width: 116px;
+      height: 116px;
+      display: grid;
+      place-items: center;
+      border-radius: 32px;
+      color: white;
+      font: 800 3.5rem "Bricolage Grotesque", sans-serif;
+      background: linear-gradient(145deg, #263d79, #142844);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 20px 65px rgba(57,103,255,.28);
+    }
+
+    .about-page .float-tag {
+      position: absolute;
+      padding: 9px 13px;
+      border-radius: 12px;
+      background: #111a2e;
+      border: 1px solid rgba(255,255,255,.12);
+      color: #dce7ff;
+      font: 700 .8rem "Bricolage Grotesque", sans-serif;
+      box-shadow: 0 10px 35px rgba(0,0,0,.2);
+    }
+
+    .about-page .tag-one {
+      top: 28px;
+      right: -5px;
+    }
+
+    .about-page .tag-two {
+      bottom: 25px;
+      left: -8px;
+    }
+
+    .about-page .about-content {
+      max-width: 1080px;
+      margin: auto;
+      padding: 58px 6vw 20px;
+    }
+
+    .about-page .section-heading {
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .about-page .section-heading h2 {
+      color: var(--about-text);
+      font: 800 clamp(1.8rem, 4vw, 2.7rem)/1.15 "Bricolage Grotesque", sans-serif;
+      letter-spacing: -.025em;
+      margin: 0 0 14px;
+    }
+
+    .about-page .section-heading p {
+      color: var(--about-muted);
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .about-page .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin: 30px 0 58px;
+    }
+
+    .about-page .feature-card {
+      padding: 25px 23px;
+      background: linear-gradient(145deg, #121d33, #0d1527);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 18px;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .about-page .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(80,227,224,.45);
+    }
+
+    .about-page .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(108,140,255,.13);
+      border: 1px solid rgba(108,140,255,.2);
+      font-size: 1.45rem;
+      margin-bottom: 18px;
+    }
+
+    .about-page .feature-card h3 {
+      color: var(--about-text);
+      font: 700 1.15rem/1.3 "Bricolage Grotesque", sans-serif;
+      margin: 0 0 10px;
+    }
+
+    .about-page .feature-card p {
+      color: var(--about-muted);
+      font-size: .96rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .about-page .process-panel {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+      padding: 34px;
+      background: #10192b;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 22px;
+      margin-bottom: 55px;
+    }
+
+    .about-page .process-panel h2 {
+      color: var(--about-text);
+      font: 800 clamp(1.7rem, 3vw, 2.3rem)/1.15 "Bricolage Grotesque", sans-serif;
+      margin: 0 0 14px;
+    }
+
+    .about-page .process-panel > div > p {
+      color: var(--about-muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .about-page .process-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 20px;
+    }
+
+    .about-page .process-list li {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 14px;
+      align-items: start;
+      color: var(--about-muted);
+      line-height: 1.7;
+    }
+
+    .about-page .step-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(80,227,224,.1);
+      color: var(--about-cyan);
+      font: 800 .9rem "Bricolage Grotesque", sans-serif;
+    }
+
+    .about-page .process-list strong {
+      display: block;
+      color: var(--about-text);
+      font: 700 1rem "Bricolage Grotesque", sans-serif;
+      margin-bottom: 3px;
+    }
+
+    .about-page .about-cta {
+      text-align: center;
+      padding: 42px 25px;
+      border: 1px solid rgba(108,140,255,.25);
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(108,140,255,.15), transparent 65%),
+        #0e172a;
+      margin-bottom: 25px;
+    }
+
+    .about-page .about-cta h2 {
+      color: var(--about-text);
+      font: 800 clamp(1.8rem, 4vw, 2.5rem)/1.15 "Bricolage Grotesque", sans-serif;
+      margin: 0 0 12px;
+    }
+
+    .about-page .about-cta p {
+      max-width: 580px;
+      color: var(--about-muted);
+      margin: 0 auto 24px;
+      line-height: 1.8;
+    }
+
+    .about-page .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border-radius: 12px;
+      background: linear-gradient(100deg, #6c8cff, #4b75ef);
+      color: white;
+      text-decoration: none;
+      font: 700 .95rem "Bricolage Grotesque", sans-serif;
+      box-shadow: 0 10px 30px rgba(76,112,240,.2);
+      transition: transform .2s ease;
+    }
+
+    .about-page .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .about-page a:focus-visible {
+      outline: 3px solid var(--about-cyan);
+      outline-offset: 4px;
+    }
+
+    .about-page footer {
+      background: #060a14;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: #a9b8d0;
+      margin-top: 35px;
+      text-align: center;
+    }
+
+    .about-page footer a {
+      color: var(--about-cyan);
+      text-decoration: none;
+    }
+
+    .about-page footer a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes about-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes about-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 760px) {
+      .about-page .about-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .about-page .about-hero {
+        padding-top: 55px;
+      }
+
+      .about-page .hero-art {
+        min-height: 230px;
+      }
+
+      .about-page .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-page .process-panel {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .about-page nav a {
+        margin-left: 10px;
+        font-size: .86rem;
+      }
+
+      .about-page .orbit {
+        width: 175px;
+        height: 175px;
+      }
+
+      .about-page .hero-icon {
+        width: 94px;
+        height: 94px;
+        border-radius: 26px;
+        font-size: 2.8rem;
+      }
+
+      .about-page .tag-one {
+        right: 0;
+      }
+
+      .about-page .tag-two {
+        left: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .about-page *,
+      .about-page *::before,
+      .about-page *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="about-page">
+  <header>
+    <a class="logo" href="index.html">Fix<b>It</b>Fast</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html#guides">Guides</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div>
+        <div class="eyebrow">About FixItFast</div>
+        <h1>Technology should work for <span class="gradient-text">you.</span></h1>
+        <p class="hero-description">
+          FixItFast makes everyday tech problems easier to solve with practical,
+          step-by-step guides written in plain language. Less confusion, fewer
+          wasted hours, and more time for what matters.
+        </p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit">
+          <div class="hero-icon">F!</div>
+          <div class="float-tag tag-one">✦ Simple steps</div>
+          <div class="float-tag tag-two">✓ Practical fixes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="about-content">
+    <section>
+      <div class="section-heading">
+        <h2>Tech help without the headache</h2>
+        <p>
+          A slow Wi-Fi connection, a phone running out of storage, or an app
+          that keeps crashing can interrupt your day. Finding a clear solution
+          should not become another problem.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🧭</div>
+          <h3>Clear instructions</h3>
+          <p>
+            We break solutions into manageable steps so you can follow along
+            without needing to be a technology expert.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">⚡</div>
+          <h3>Practical solutions</h3>
+          <p>
+            Our goal is to help you try sensible, useful fixes before spending
+            time or money on more complicated options.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🔎</div>
+          <h3>Everyday problems</h3>
+          <p>
+            We focus on phones, computers, Wi-Fi, apps, and the small tech
+            frustrations that can disrupt daily life.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="process-panel">
+      <div>
+        <h2>How we approach every guide</h2>
+        <p>
+          Helpful advice should be easy to understand and straightforward to
+          try. We aim to make each guide useful from the very first step.
+        </p>
+      </div>
+
+      <ol class="process-list">
+        <li>
+          <span class="step-number">01</span>
+          <div>
+            <strong>Understand the problem</strong>
+            We describe the issue clearly and outline common possible causes.
+          </div>
+        </li>
+        <li>
+          <span class="step-number">02</span>
+          <div>
+            <strong>Start with simple fixes</strong>
+            We organize troubleshooting steps from easy checks to more involved
+            options where appropriate.
+          </div>
+        </li>
+        <li>
+          <span class="step-number">03</span>
+          <div>
+            <strong>Keep information useful</strong>
+            We aim to review and improve guides as devices, apps, and software
+            change. Exact steps can vary by device and version.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="about-cta">
+      <h2>Have a tech problem in mind?</h2>
+      <p>
+        Tell us what is not working, suggest a topic, or let us know if a guide
+        needs correcting. Your feedback can help us make FixItFast more useful.
+      </p>
+      <a class="cta-button" href="contact.html">
+        Contact FixItFast <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <a href="about.html">About</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="contact.html">Contact</a>
+    <br>
+    © <span id="y"></span> FixItFast. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

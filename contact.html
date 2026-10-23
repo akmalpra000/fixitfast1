@@ -1,8 +1,726 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact FixItFast</title><meta name="description" content="Send a question, correction or guide request to FixItFast."><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4&display=swap"><link rel="stylesheet" href="style.css"><!-- Paste your Google AdSense script here after approval --></head><body><header><a class="logo" href="index.html">Fix<b>It</b>Fast</a><nav><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header><article><h1>Contact us</h1><p>Have a tech problem you want us to cover, or spotted a mistake? Send a message. We read every one.</p>
-<form id="f" style="display:grid;gap:14px;margin-top:20px">
-<label>Your name<br><input id="n" required style="width:100%;padding:12px;font-size:1rem"></label>
-<label>Your email<br><input id="e" type="email" required style="width:100%;padding:12px;font-size:1rem"></label>
-<label>Message<br><textarea id="m" rows="6" required style="width:100%;padding:12px;font-size:1rem"></textarea></label>
-<button class="chip on" style="padding:12px 24px;font-size:1rem">Send message</button></form>
-<p>Or email us directly at <a href="mailto:akmalpra000@gmail.com">akmalpra000@gmail.com</a>. We usually reply within 2 to 3 days.</p>
-<script>document.getElementById("f").onsubmit=function(ev){ev.preventDefault();location.href="mailto:akmalpra000@gmail.com?subject="+encodeURIComponent("FixItFast message from "+n.value)+"&body="+encodeURIComponent(m.value+"\n\nReply to: "+e.value)}</script></article><footer><a href="about.html">About</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a><br>© <span id="y"></span> FixItFast. All rights reserved.<script>document.getElementById("y").textContent=new Date().getFullYear()</script></footer></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact FixItFast | We're Here to Help</title>
+  <meta name="description" content="Contact FixItFast with your tech questions, guide suggestions, feedback, or corrections.">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Serif+4&display=swap">
+
+  <style>
+    :root {
+      --bg: #080d1c;
+      --panel: #111a2e;
+      --panel-light: #15213a;
+      --text: #f3f7ff;
+      --muted: #a9b8d0;
+      --blue: #6c8cff;
+      --cyan: #50e3e0;
+      --line: rgba(255,255,255,.11);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font: 18px/1.75 "Source Serif 4", Georgia, serif;
+    }
+
+    h1, h2, h3, button, nav, .logo, .eyebrow, .contact-label {
+      font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+    }
+
+    a {
+      color: var(--cyan);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 6vw;
+      background: #0b1224;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 1.55rem;
+      font-weight: 800;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo b {
+      color: var(--cyan);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      color: #d5e0f4;
+      font-size: .95rem;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--cyan);
+    }
+
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 68px 6vw 64px;
+      background:
+        radial-gradient(ellipse at 85% 25%, rgba(80,227,224,.14), transparent 32%),
+        radial-gradient(ellipse at 10% 85%, rgba(108,140,255,.17), transparent 38%),
+        var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: var(--cyan);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 2px;
+      background: var(--cyan);
+    }
+
+    .contact-hero h1 {
+      max-width: 650px;
+      margin: 0 0 22px;
+      font-size: clamp(2.7rem, 5.5vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -.04em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 580px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.85;
+    }
+
+    .hero-art {
+      display: grid;
+      place-items: center;
+      min-height: 270px;
+    }
+
+    .orbit {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 220px;
+      height: 220px;
+      border: 1px solid rgba(108,140,255,.4);
+      border-radius: 50%;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      position: absolute;
+      content: "";
+      border: 1px solid rgba(80,227,224,.22);
+      border-radius: 50%;
+    }
+
+    .orbit::before {
+      inset: 18px;
+    }
+
+    .orbit::after {
+      inset: -18px;
+      border-style: dashed;
+      animation: spin 24s linear infinite;
+    }
+
+    .hero-icon {
+      display: grid;
+      place-items: center;
+      width: 116px;
+      height: 116px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 32px;
+      background: linear-gradient(145deg, #263d79, #142844);
+      box-shadow: 0 20px 65px rgba(57,103,255,.28);
+      font-size: 3.4rem;
+    }
+
+    .float-tag {
+      position: absolute;
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      color: #e5edff;
+      font: 700 .82rem "Bricolage Grotesque", sans-serif;
+      box-shadow: 0 10px 35px rgba(0,0,0,.2);
+    }
+
+    .tag-one {
+      top: 25px;
+      right: -15px;
+    }
+
+    .tag-two {
+      bottom: 24px;
+      left: -20px;
+    }
+
+    .contact-main {
+      width: min(1080px, 100%);
+      margin: auto;
+      padding: 58px 6vw 25px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin: 34px 0 58px;
+    }
+
+    .contact-card {
+      min-width: 0;
+      min-height: 190px;
+      padding: 25px 22px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(145deg, var(--panel), #0d1527);
+      text-align: center;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(80,227,224,.45);
+    }
+
+    .contact-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 17px;
+      border: 1px solid rgba(108,140,255,.25);
+      border-radius: 17px;
+      background: rgba(108,140,255,.12);
+      font-size: 1.8rem;
+      animation: icon-float 3s ease-in-out infinite;
+    }
+
+    .contact-card:nth-child(2) .contact-icon {
+      animation-delay: .3s;
+    }
+
+    .contact-card:nth-child(3) .contact-icon {
+      animation-delay: .6s;
+    }
+
+    .contact-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    .contact-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .96rem;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      margin-top: 10px;
+      font: 700 .95rem "Bricolage Grotesque", sans-serif;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .form-panel {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 42px;
+      align-items: start;
+      padding: 36px;
+      margin-bottom: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(145deg, #111b30, #0d1527);
+    }
+
+    .form-intro h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.9rem, 3vw, 2.5rem);
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .form-intro p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.85;
+    }
+
+    .response-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 15px;
+      border: 1px solid rgba(80,227,224,.18);
+      border-radius: 13px;
+      background: rgba(80,227,224,.06);
+      color: #c8d8ed;
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .field {
+      display: grid;
+      gap: 9px;
+    }
+
+    .field label {
+      color: #edf3ff;
+      font: 700 1rem "Bricolage Grotesque", sans-serif;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      min-width: 0;
+      padding: 15px 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px;
+      outline: none;
+      background: #080f20;
+      color: var(--text);
+      font: 17px/1.6 "Source Serif 4", Georgia, serif;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #8292ad;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(80,227,224,.1);
+    }
+
+    .field textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 22px;
+      border: 0;
+      border-radius: 12px;
+      background: linear-gradient(100deg, var(--blue), #4b75ef);
+      color: #fff;
+      cursor: pointer;
+      font: 700 1.05rem "Bricolage Grotesque", sans-serif;
+      box-shadow: 0 10px 30px rgba(76,112,240,.2);
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .direct-email {
+      margin: 25px 0 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .98rem;
+      overflow-wrap: anywhere;
+    }
+
+    .direct-email a {
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 35px;
+      padding: 30px 6vw;
+      border-top: 1px solid var(--line);
+      background: #060a14;
+      color: var(--muted);
+      text-align: center;
+      font-size: .95rem;
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes icon-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .hero-art {
+        min-height: 230px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        min-height: auto;
+        padding: 25px;
+      }
+
+      .form-panel {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        font-size: 17px;
+      }
+
+      header {
+        padding: 16px 5vw;
+        gap: 12px;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+
+      nav {
+        gap: 13px;
+      }
+
+      nav a {
+        font-size: .84rem;
+      }
+
+      .contact-hero {
+        padding: 48px 6vw 40px;
+      }
+
+      .contact-hero h1 {
+        font-size: clamp(2.35rem, 10vw, 3rem);
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .orbit {
+        width: 175px;
+        height: 175px;
+      }
+
+      .hero-icon {
+        width: 94px;
+        height: 94px;
+        border-radius: 26px;
+        font-size: 2.8rem;
+      }
+
+      .tag-one {
+        right: -8px;
+      }
+
+      .tag-two {
+        left: -12px;
+      }
+
+      .contact-main {
+        padding: 42px 5vw 20px;
+      }
+
+      .form-panel {
+        padding: 22px 18px;
+      }
+
+      .field input,
+      .field textarea {
+        font-size: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="index.html">Fix<b>It</b>Fast</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html#guides">Guides</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </header>
+
+  <section class="contact-hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h1>Let's talk. <span class="gradient-text">We're here.</span></h1>
+        <p class="hero-description">
+          Have a tech problem you want us to cover, a suggestion to share, or
+          a correction to report? We'd love to hear from you. Send us a message
+          and help make FixItFast better.
+        </p>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit">
+          <div class="hero-icon">✉</div>
+          <div class="float-tag tag-one">✦ Your ideas matter</div>
+          <div class="float-tag tag-two">✓ We're listening</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="contact-main">
+    <section>
+      <div class="section-heading">
+        <h2>Choose how to reach us</h2>
+        <p>
+          Use the contact form or email us directly. For WhatsApp, add your
+          actual number to the link below before publishing.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="contact-icon" aria-hidden="true">💬</div>
+          <h3>WhatsApp</h3>
+          <p>Prefer messaging? Contact us on WhatsApp.</p>
+          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">
+            Open WhatsApp →
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <div class="contact-icon" aria-hidden="true">✉️</div>
+          <h3>Email us</h3>
+          <p>Send your questions, ideas, or corrections directly.</p>
+          <a href="mailto:akmalpra000@gmail.com">
+            Send an email →
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <div class="contact-icon" aria-hidden="true">📝</div>
+          <h3>Send a message</h3>
+          <p>Share the details of your issue using our contact form.</p>
+          <a href="#contact-form">Go to the form ↓</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="form-panel" id="contact-form">
+      <div class="form-intro">
+        <div class="eyebrow">Your message</div>
+        <h2>How can we help?</h2>
+        <p>
+          Tell us what you need help with. Whether it's a technical issue,
+          a guide idea, or feedback about our website, please include enough
+          detail for us to understand your message.
+        </p>
+        <div class="response-note">
+          <span aria-hidden="true">ⓘ</span>
+          <span>
+            We aim to respond within 2–3 days. Submitting this form opens your
+            default email application so you can review and send your message.
+          </span>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text"
+            placeholder="Enter your name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Your email address</label>
+          <input id="email" name="email" type="email"
+            placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="message">Your message</label>
+          <textarea id="message" name="message"
+            placeholder="Tell us how we can help..." required></textarea>
+        </div>
+
+        <button class="submit-button" type="submit">
+          Send your message <span aria-hidden="true">→</span>
+        </button>
+      </form>
+    </section>
+
+    <p class="direct-email">
+      Prefer email? Write to
+      <a href="mailto:akmalpra000@gmail.com">akmalpra000@gmail.com</a>
+    </p>
+  </main>
+
+  <footer>
+    <a href="about.html">About</a> ·
+    <a href="privacy.html">Privacy Policy</a> ·
+    <a href="contact.html">Contact</a>
+    <br>
+    © <span id="year"></span> FixItFast. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = "FixItFast message from " + name;
+      const body =
+        "Name: " + name + "\n" +
+        "Reply to: " + email + "\n\n" +
+        "Message:\n" + message;
+
+      const mailto =
+        "mailto:akmalpra000@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
