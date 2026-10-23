@@ -67,7 +67,7 @@ DAILY ROUTINE (20 minutes)
 - Keep a record of what I published and what Search Console shows.
 
 BEFORE UPLOADING - FIND & REPLACE (VS Code: Ctrl+Shift+H, whole folder)
-1. YOURDOMAIN.com  -> my real domain (index, privacy, sitemap, robots)
+1. fixitfast1.vercel.app  -> my real domain (index, privacy, sitemap, robots)
 2. your@email.com  -> my real email (index, privacy, contact)
 3. YOUR NAME       -> my name (about.html)
 4. If articles start on a different day, change the dates in articles.js
