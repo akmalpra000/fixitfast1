@@ -1,8 +1,8 @@
-/* 30-DAY ARTICLE STORE. Each article goes live on its date. Copy a block to add more. */
-const ARTICLES = [
+/* FIXITFAST ARTICLE STORE. The first 3 show immediately; the rest go live one per day on their date. Copy a block to add more. */
+window.ARTICLES = [
  {
   "id": "wi-fi-is-slow-7-fixes-that-actually-work",
-  "date": "2026-10-23",
+  "date": "2026-10-21",
   "category": "Wi-Fi",
   "title": "Wi-Fi Is Slow? 7 Fixes That Actually Work",
   "summary": "Seven quick checks that fix most slow home internet.",
@@ -10,7 +10,7 @@ const ARTICLES = [
  },
  {
   "id": "phone-storage-full-free-up-space-in-10-minutes",
-  "date": "2026-10-24",
+  "date": "2026-10-22",
   "category": "Phone",
   "title": "Phone Storage Full? Free Up Space in 10 Minutes",
   "summary": "Clear gigabytes without losing the photos you care about.",
@@ -18,7 +18,7 @@ const ARTICLES = [
  },
  {
   "id": "why-your-phone-battery-drains-fast-and-how-to-stop",
-  "date": "2026-10-25",
+  "date": "2026-10-23",
   "category": "Phone",
   "title": "Why Your Phone Battery Drains Fast (and How to Stop It)",
   "summary": "Find the apps and settings eating your battery.",
@@ -26,7 +26,7 @@ const ARTICLES = [
  },
  {
   "id": "laptop-running-slow-8-fixes-before-you-buy-a-new-o",
-  "date": "2026-10-26",
+  "date": "2026-10-24",
   "category": "PC",
   "title": "Laptop Running Slow? 8 Fixes Before You Buy a New One",
   "summary": "Speed up a sluggish laptop with free changes.",
@@ -34,7 +34,7 @@ const ARTICLES = [
  },
  {
   "id": "connected-to-wi-fi-but-no-internet-here-is-the-fix",
-  "date": "2026-10-27",
+  "date": "2026-10-25",
   "category": "Wi-Fi",
   "title": "Connected to Wi-Fi but No Internet? Here Is the Fix",
   "summary": "Your device shows Wi-Fi but nothing loads. Work through this list.",
@@ -42,7 +42,7 @@ const ARTICLES = [
  },
  {
   "id": "phone-charging-slowly-check-these-6-things",
-  "date": "2026-10-28",
+  "date": "2026-10-26",
   "category": "Phone",
   "title": "Phone Charging Slowly? Check These 6 Things",
   "summary": "Slow charging is usually the cable, charger or port.",
@@ -50,7 +50,7 @@ const ARTICLES = [
  },
  {
   "id": "whatsapp-backup-not-working-how-to-fix-it",
-  "date": "2026-10-29",
+  "date": "2026-10-27",
   "category": "Apps",
   "title": "WhatsApp Backup Not Working? How to Fix It",
   "summary": "Fix the usual reasons chat backup fails.",
@@ -58,7 +58,7 @@ const ARTICLES = [
  },
  {
   "id": "computer-won-t-turn-on-what-to-check-first",
-  "date": "2026-10-30",
+  "date": "2026-10-28",
   "category": "PC",
   "title": "Computer Won't Turn On? What to Check First",
   "summary": "Do these checks before calling a repair shop.",
@@ -66,7 +66,7 @@ const ARTICLES = [
  },
  {
   "id": "microphone-not-working-on-windows-easy-fixes",
-  "date": "2026-10-31",
+  "date": "2026-10-29",
   "category": "PC",
   "title": "Microphone Not Working on Windows? Easy Fixes",
   "summary": "Get your mic back for calls and recordings.",
@@ -74,7 +74,7 @@ const ARTICLES = [
  },
  {
   "id": "how-to-stop-annoying-pop-up-ads-on-your-phone",
-  "date": "2026-11-01",
+  "date": "2026-10-30",
   "category": "Phone",
   "title": "How to Stop Annoying Pop-up Ads on Your Phone",
   "summary": "Remove unwanted pop-ups and find what is causing them.",
@@ -82,7 +82,7 @@ const ARTICLES = [
  },
  {
   "id": "how-to-speed-up-google-chrome",
-  "date": "2026-11-02",
+  "date": "2026-10-31",
   "category": "Apps",
   "title": "How to Speed Up Google Chrome",
   "summary": "Make Chrome faster without installing anything.",
@@ -90,7 +90,7 @@ const ARTICLES = [
  },
  {
   "id": "usb-drive-not-detected-how-to-fix-it",
-  "date": "2026-11-03",
+  "date": "2026-11-01",
   "category": "PC",
   "title": "USB Drive Not Detected? How to Fix It",
   "summary": "When your flash drive or device does not appear.",
@@ -98,7 +98,7 @@ const ARTICLES = [
  },
  {
   "id": "blue-screen-error-on-windows-what-it-means-and-how",
-  "date": "2026-11-04",
+  "date": "2026-11-02",
   "category": "PC",
   "title": "Blue Screen Error on Windows: What It Means and How to Fix It",
   "summary": "Understand the stop code and fix the common causes.",
@@ -106,7 +106,7 @@ const ARTICLES = [
  },
  {
   "id": "phone-camera-blurry-simple-fixes",
-  "date": "2026-11-05",
+  "date": "2026-11-03",
   "category": "Phone",
   "title": "Phone Camera Blurry? Simple Fixes",
   "summary": "Fix soft or out-of-focus photos.",
@@ -114,7 +114,7 @@ const ARTICLES = [
  },
  {
   "id": "phone-hanging-and-freezing-what-to-do",
-  "date": "2026-11-06",
+  "date": "2026-11-04",
   "category": "Phone",
   "title": "Phone Hanging and Freezing? What to Do",
   "summary": "Stop lag, freezes and stuttering.",
@@ -122,7 +122,7 @@ const ARTICLES = [
  },
  {
   "id": "windows-update-stuck-how-to-get-it-moving",
-  "date": "2026-11-07",
+  "date": "2026-11-05",
   "category": "PC",
   "title": "Windows Update Stuck? How to Get It Moving",
   "summary": "Fix updates frozen at a percentage.",
@@ -130,7 +130,7 @@ const ARTICLES = [
  },
  {
   "id": "laptop-overheating-how-to-cool-it-down",
-  "date": "2026-11-08",
+  "date": "2026-11-06",
   "category": "PC",
   "title": "Laptop Overheating? How to Cool It Down",
   "summary": "Stop the fan roar and the burning-hot base.",
@@ -138,7 +138,7 @@ const ARTICLES = [
  },
  {
   "id": "bluetooth-not-connecting-fix-it-in-minutes",
-  "date": "2026-11-09",
+  "date": "2026-11-07",
   "category": "Phone",
   "title": "Bluetooth Not Connecting? Fix It in Minutes",
   "summary": "Pair headphones, speakers and cars again.",
@@ -146,7 +146,7 @@ const ARTICLES = [
  },
  {
   "id": "printer-not-printing-quick-troubleshooting",
-  "date": "2026-11-10",
+  "date": "2026-11-08",
   "category": "PC",
   "title": "Printer Not Printing? Quick Troubleshooting",
   "summary": "Get stuck print jobs moving.",
@@ -154,7 +154,7 @@ const ARTICLES = [
  },
  {
   "id": "forgot-your-windows-password-your-options",
-  "date": "2026-11-11",
+  "date": "2026-11-09",
   "category": "PC",
   "title": "Forgot Your Windows Password? Your Options",
   "summary": "Regain access to your own computer.",
@@ -162,7 +162,7 @@ const ARTICLES = [
  },
  {
   "id": "screen-flickering-on-your-pc-causes-and-fixes",
-  "date": "2026-11-12",
+  "date": "2026-11-10",
   "category": "PC",
   "title": "Screen Flickering on Your PC? Causes and Fixes",
   "summary": "Stop flashes, lines and flickering.",
@@ -170,7 +170,7 @@ const ARTICLES = [
  },
  {
   "id": "android-apps-keep-crashing-try-this",
-  "date": "2026-11-13",
+  "date": "2026-11-11",
   "category": "Phone",
   "title": "Android Apps Keep Crashing? Try This",
   "summary": "Stop repeated app crashes.",
@@ -178,7 +178,7 @@ const ARTICLES = [
  },
  {
   "id": "iphone-getting-hot-why-and-how-to-cool-it",
-  "date": "2026-11-14",
+  "date": "2026-11-12",
   "category": "Phone",
   "title": "iPhone Getting Hot? Why and How to Cool It",
   "summary": "Stop your iPhone from overheating.",
@@ -186,7 +186,7 @@ const ARTICLES = [
  },
  {
   "id": "google-storage-full-how-to-free-space",
-  "date": "2026-11-15",
+  "date": "2026-11-13",
   "category": "Apps",
   "title": "Google Storage Full? How to Free Space",
   "summary": "Clear Gmail, Drive and Photos space without paying.",
@@ -194,7 +194,7 @@ const ARTICLES = [
  },
  {
   "id": "phone-hotspot-not-working-easy-fixes",
-  "date": "2026-11-16",
+  "date": "2026-11-14",
   "category": "Wi-Fi",
   "title": "Phone Hotspot Not Working? Easy Fixes",
   "summary": "Share your phone's internet again.",
@@ -202,7 +202,7 @@ const ARTICLES = [
  },
  {
   "id": "keyboard-typing-wrong-characters-fix-it",
-  "date": "2026-11-17",
+  "date": "2026-11-15",
   "category": "PC",
   "title": "Keyboard Typing Wrong Characters? Fix It",
   "summary": "Stop symbols and letters coming out wrong.",
@@ -210,7 +210,7 @@ const ARTICLES = [
  },
  {
   "id": "how-to-recover-deleted-files-on-windows",
-  "date": "2026-11-18",
+  "date": "2026-11-16",
   "category": "PC",
   "title": "How to Recover Deleted Files on Windows",
   "summary": "Try to get back files you deleted.",
@@ -218,7 +218,7 @@ const ARTICLES = [
  },
  {
   "id": "speed-up-an-old-android-phone",
-  "date": "2026-11-19",
+  "date": "2026-11-17",
   "category": "Phone",
   "title": "Speed Up an Old Android Phone",
   "summary": "Give an older phone more life.",
@@ -226,7 +226,7 @@ const ARTICLES = [
  },
  {
   "id": "echo-or-feedback-during-calls-stop-it",
-  "date": "2026-11-20",
+  "date": "2026-11-18",
   "category": "Apps",
   "title": "Echo or Feedback During Calls? Stop It",
   "summary": "Clear up echo in Zoom, Meet and phone calls.",
@@ -234,7 +234,7 @@ const ARTICLES = [
  },
  {
   "id": "what-do-the-lights-on-your-router-mean",
-  "date": "2026-11-21",
+  "date": "2026-11-19",
   "category": "Wi-Fi",
   "title": "What Do the Lights on Your Router Mean?",
   "summary": "Read your router lights to find the problem.",

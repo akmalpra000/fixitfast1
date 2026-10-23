@@ -1,14 +1,20 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>FixItFast</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Source+Serif+4&display=swap">
-<link rel="stylesheet" href="style.css"></head><body>
-<header><a class="logo" href="index.html">Fix<b>It</b>Fast</a><nav><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
-<article id="a"></article><footer><a href="about.html">About</a> · <a href="privacy.html">Privacy Policy</a> · <a href="contact.html">Contact</a><br>© <span id="y"></span> FixItFast. All rights reserved.<script>document.getElementById("y").textContent=new Date().getFullYear()</script></footer>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FixItFast</title><meta name="description" content="Step-by-step tech fixes from FixItFast."><meta name="theme-color" content="#071426"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="page.css"><!-- Paste your approved Google AdSense script here --></head><body><header class="ff-header"><div class="ff-header-inner"><a class="ff-logo" href="index.html" aria-label="FixItFast home"><span class="ff-logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M13.2 2.8 5.8 13h5.1l-.8 8.2L18.5 10h-5.2l-.1-7.2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><span>Fix<span class="ff-brand-it">It</span>Fast</span></a><nav class="ff-nav" aria-label="Main navigation"><a href="index.html#guides">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header><main class="ff-doc" id="a"></main><footer class="ff-footer"><div class="ff-shell"><nav><a href="index.html">Home</a><a href="about.html">About us</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy policy</a></nav><p>© <span id="y"></span> FixItFast. All rights reserved.</p></div></footer><script>document.getElementById("y").textContent=new Date().getFullYear()</script>
 <script src="articles.js"></script>
 <script>
-const id=new URLSearchParams(location.search).get("id"),today=new Date().toISOString().slice(0,10);
-const a=ARTICLES.find(x=>x.id==id&&x.date<=today),el=document.getElementById("a");
-if(a){document.title=a.title+" – FixItFast";var md=document.createElement("meta");md.name="description";md.content=a.summary;document.head.appendChild(md);
-el.innerHTML=`<span class="meta">${a.category} · ${a.date}</span><h1>${a.title}</h1><div class="ad">Ad space</div>${a.body}<div class="ad">Ad space</div><p><a href="index.html">← More guides</a></p>`}
-else el.innerHTML="<h1>Guide not found</h1><p><a href='index.html'>Back to all guides</a></p>";
+(function(){
+var d=new Date(),today=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+var all=(window.ARTICLES||[]).filter(function(x){return x.date<=today}).sort(function(a,b){return b.date.localeCompare(a.date)});
+var id=new URLSearchParams(location.search).get("id"),a=all.find(function(x){return x.id===id}),el=document.getElementById("a");
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+if(a){
+ document.title=a.title+" – FixItFast";
+ var m=document.createElement("meta");m.name="description";m.content=a.summary;document.head.appendChild(m);
+ var c=document.createElement("link");c.rel="canonical";c.href=location.origin+location.pathname+"?id="+encodeURIComponent(a.id);document.head.appendChild(c);
+ var more=all.filter(function(x){return x.id!==a.id}).slice(0,3).map(function(x){return '<a href="article.html?id='+encodeURIComponent(x.id)+'">'+esc(x.title)+'</a>'}).join("");
+ el.innerHTML='<span class="ff-tag">'+esc(a.category)+'</span><span class="ff-date">'+esc(a.date)+'</span><h1>'+esc(a.title)+'</h1><div class="ff-ad">Advertisement</div>'+a.body+'<div class="ff-ad">Advertisement</div><div class="ff-more"><h2>More guides</h2>'+more+'<p><a href="index.html#guides">See all guides →</a></p></div>';
+}else{
+ var n=document.createElement("meta");n.name="robots";n.content="noindex";document.head.appendChild(n);
+ el.innerHTML='<h1>Guide not found</h1><p>This guide may not be published yet. <a href="index.html#guides">Browse all guides →</a></p>';
+}
+})();
 </script></body></html>

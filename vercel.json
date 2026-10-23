@@ -1,0 +1,4 @@
+{
+  "rewrites": [{ "source": "/sitemap.xml", "destination": "/api/sitemap" }],
+  "functions": { "api/sitemap.js": { "includeFiles": "articles.js" } }
+}
